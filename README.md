@@ -1,8 +1,54 @@
 # ForEvolve.Testing
 
-There is always something unexpected that happens or something that requires a complex mock setup or whatnot when testing web applications. This project aim at regrouping as many of those solutions as possible, ready to use.
+There is always something unexpected that happens or something that requires a complex mock setup or whatnot when testing web applications. This project aim at regrouping as many of those solutions as possible, ready to use, as well as multiple small utilities.
 
 If your specific use-case is not covered, you can always contribute it or open an issue.
+
+## Versioning
+
+Once the project hits `v1.0.0`, the project will follows _sementic versioning_.
+
+## Hot to use
+
+### NuGet
+
+All packages are available on [https://www.nuget.org/profiles/ForEvolve](https://www.nuget.org/profiles/ForEvolve).
+
+To load all testing packages, reference the `ForEvolve.Testing` package:
+
+```PowerShell
+Install-Package ForEvolve.Testing
+```
+
+or
+
+```PowerShell
+dotnet add package ForEvolve.Testing
+```
+
+#### Individual packages (App)
+
+To load individual packages, you can:
+
+```PowerShell
+Install-Package ForEvolve.Testing.Core
+Install-Package ForEvolve.Testing.AspNetCore
+```
+
+or
+
+```PowerShell
+dotnet add package ForEvolve.Testing.Core
+dotnet add package ForEvolve.Testing.AspNetCore
+```
+
+### Prerelease MyGet
+
+For the pre-release packages, use the ForEvolve [NuGet V3 feed URL](https://www.myget.org/F/forevolve/api/v3/index.json) packages source. See the [Table of content](https://github.com/ForEvolve/Toc) project for more info.
+
+### Pre-release build number
+
+Pre-release builds number are autoincremented.
 
 ## Content
 
@@ -61,7 +107,17 @@ The initial code comes from the `ForEvolve.XUnit` project, see [ForEvolve-Framew
 
 ## The future
 
-I also have an HTTP test server in construction (started a while back actually) that allows setting inputs and outputs to test API clients, in-memory.
-It is in the `HttpTests` directory, and there is also a branch somewhere that improve it. _This is incomplete, working, but incomplete; both this and the other branch code._
+Here are a few things that I'd like to add:
 
-There is much stuff that I want to improve or add to this library in the future, and since I use it myself in my projects, I will probably do.
+-   An in-memory test server that replies configurable predefined values. This could become an in-memory mock API to test clients or other APIs.
+-   An easy way to connect an in-memory test host to another in-memory Identity Server 4 to fully test authentication.
+
+There is much stuff that I want to improve or add to this library in the future, and since I use it myself in my projects, I will probably do if the time allows.
+
+## How to contribute?
+
+If you would like to contribute to the project, first, thank you for your interest and please read [Contributing to ForEvolve open source projects](https://github.com/ForEvolve/ForEvolve-Framework/tree/master/CONTRIBUTING.md) for more information.
+
+### Contributor Covenant Code of Conduct
+
+Also, please read the [Contributor Covenant Code of Conduct](https://github.com/ForEvolve/ForEvolve-Framework/tree/master/CODE_OF_CONDUCT.md) that applies to all ForEvolve repositories.
