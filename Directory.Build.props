@@ -1,0 +1,15 @@
+<Project>
+  <Import Project="Dependencies.Build.props" />
+
+  <PropertyGroup>
+    <Product>ForEvolve Framework</Product>
+    <RepositoryUrl>https://github.com/ForEvolve/ForEvolve-Framework</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="$(ForEvolveMoqVersion)" />
+    <PackageReference Include="xunit" Version="$(ForEvolveXunitVersion)" />
+  </ItemGroup>
+</Project>
