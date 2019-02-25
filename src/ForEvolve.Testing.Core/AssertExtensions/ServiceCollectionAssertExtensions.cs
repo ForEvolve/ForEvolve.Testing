@@ -8,9 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionAssertExtensions
     {
-        public static IServiceCollection AssertAllServicesAreRegistered(
-            this IServiceCollection services,
-
+        public static IServiceCollection AssertAllServicesAreRegistered(this IServiceCollection services,
             IEnumerable<Type> expectedSingletonServices = null,
             IEnumerable<Type> expectedScopedServices = null,
             IEnumerable<Type> expectedTransientServices = null
@@ -67,8 +65,7 @@ namespace Microsoft.Extensions.DependencyInjection
             );
         }
 
-        public static IServiceCollection AssertServicesExistInScope(
-            this IServiceCollection services,
+        public static IServiceCollection AssertServicesExistInScope(this IServiceCollection services,
             IEnumerable<Type> expectedServices,
             ServiceLifetime lifetime
         )

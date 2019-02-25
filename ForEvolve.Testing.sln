@@ -7,10 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0859CBB5-A49
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7E5A7F24-A638-4D2D-8568-1206012F1A96}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{029B8C6C-7D1A-454E-B6CA-D4FE3862161B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{029B8C6C-7D1A-454E-B6CA-D4FE3862161B}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		Dependencies.Build.props = Dependencies.Build.props
 		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41462909-47AF-4F91-81D0-8EDC32A19194}"
@@ -18,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41462909-47A
 		src\Directory.Build.props = src\Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{59677A6D-CBD0-4225-84EE-E43BABB5C56A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{59677A6D-CBD0-4225-84EE-E43BABB5C56A}"
 	ProjectSection(SolutionItems) = preProject
 		build\build-packages-version-override.ps1 = build\build-packages-version-override.ps1
 	EndProjectSection
@@ -35,6 +38,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.AspNetCore", "src\ForEvolve.Testing.AspNetCore\ForEvolve.Testing.AspNetCore.csproj", "{E4798E03-4ACF-4F06-AEBA-00D997961CCA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.AspNetCore.Tests", "test\ForEvolve.Testing.AspNetCore.Tests\ForEvolve.Testing.AspNetCore.Tests.csproj", "{4E3341F5-1BDF-424C-81A9-CBB03E52B116}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.Core", "src\ForEvolve.Testing.Core\ForEvolve.Testing.Core.csproj", "{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.Core.Tests", "test\ForEvolve.Testing.Core.Tests\ForEvolve.Testing.Core.Tests.csproj", "{452FDC80-8438-4E88-AC61-4895CB694E59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +101,30 @@ Global
 		{4E3341F5-1BDF-424C-81A9-CBB03E52B116}.Release|x64.Build.0 = Release|Any CPU
 		{4E3341F5-1BDF-424C-81A9-CBB03E52B116}.Release|x86.ActiveCfg = Release|Any CPU
 		{4E3341F5-1BDF-424C-81A9-CBB03E52B116}.Release|x86.Build.0 = Release|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Debug|x64.Build.0 = Debug|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Debug|x86.Build.0 = Debug|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Release|x64.ActiveCfg = Release|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Release|x64.Build.0 = Release|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Release|x86.ActiveCfg = Release|Any CPU
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD}.Release|x86.Build.0 = Release|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Debug|x64.Build.0 = Debug|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Debug|x86.Build.0 = Debug|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Release|x64.ActiveCfg = Release|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Release|x64.Build.0 = Release|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Release|x86.ActiveCfg = Release|Any CPU
+		{452FDC80-8438-4E88-AC61-4895CB694E59}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +137,8 @@ Global
 		{6821F842-90FD-47E7-ACCB-5688130C2BA3} = {7E5A7F24-A638-4D2D-8568-1206012F1A96}
 		{E4798E03-4ACF-4F06-AEBA-00D997961CCA} = {0859CBB5-A49D-4167-A777-2A185ABA75F5}
 		{4E3341F5-1BDF-424C-81A9-CBB03E52B116} = {7E5A7F24-A638-4D2D-8568-1206012F1A96}
+		{302B3D9D-F89B-445C-B45F-DD05EB6C6DDD} = {0859CBB5-A49D-4167-A777-2A185ABA75F5}
+		{452FDC80-8438-4E88-AC61-4895CB694E59} = {7E5A7F24-A638-4D2D-8568-1206012F1A96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E14726D6-C79A-49B5-BC51-C7BFAAA30A96}
