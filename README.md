@@ -6,7 +6,7 @@ If your specific use-case is not covered, you can always contribute it or open a
 
 ## Versioning
 
-Once the project hits `v1.0.0`, the project will follows _sementic versioning_.
+The packages should follows _sementic versioning_.
 
 ## Hot to use
 
