@@ -24,7 +24,7 @@ if ($Env:Build_Reason -eq "PullRequest") {
     $source = $Env:System_PullRequest_SourceBranch
     $target = $Env:System_PullRequest_TargetBranch
 
-    $prefix = "release/"
+    $prefix = "releases/"
     $prefixLength = $prefix.length
     if ($source.StartsWith($prefix)) {
         $v = $source.Substring($prefixLength)
