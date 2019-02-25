@@ -1,7 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="$(ForEvolveNetCoreVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="$(ForEvolveNetCoreVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="$(ForEvolveIdentityVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
+    <packageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(ForEvolveNetCoreVersion)" />
+  </ItemGroup>
 
 </Project>
