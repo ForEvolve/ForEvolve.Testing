@@ -8,7 +8,8 @@ namespace ForEvolve.OperationResults.Tests
     public class OperationResultAssertExtensionsTest
     {
         private readonly Mock<IOperationResult> _operationResultMock = new Mock<IOperationResult>();
-        public class AssertSucceeded : OperationResultAssertExtensionsTest
+
+        public class ShouldHaveSucceeded : OperationResultAssertExtensionsTest
         {
             [Fact]
             public void Should_pass_when_result_is_Successful()
@@ -17,7 +18,7 @@ namespace ForEvolve.OperationResults.Tests
                 _operationResultMock.Setup(x => x.Succeeded).Returns(true);
 
                 // Act & Assert
-                _operationResultMock.Object.AssertSucceeded();
+                _operationResultMock.Object.ShouldHaveSucceeded();
             }
 
             [Fact]
@@ -27,11 +28,11 @@ namespace ForEvolve.OperationResults.Tests
                 _operationResultMock.Setup(x => x.Succeeded).Returns(false);
 
                 // Act & Assert
-                Assert.Throws<TrueException>(() => _operationResultMock.Object.AssertSucceeded());
+                Assert.Throws<TrueException>(() => _operationResultMock.Object.ShouldHaveSucceeded());
             }
         }
 
-        public class AssertFailed : OperationResultAssertExtensionsTest
+        public class ShouldHaveFailed : OperationResultAssertExtensionsTest
         {
             [Fact]
             public void Should_throw_a_TrueException_when_result_is_Successful()
@@ -40,7 +41,7 @@ namespace ForEvolve.OperationResults.Tests
                 _operationResultMock.Setup(x => x.Succeeded).Returns(true);
 
                 // Act & Assert
-                Assert.Throws<FalseException>(() => _operationResultMock.Object.AssertFailed());
+                Assert.Throws<FalseException>(() => _operationResultMock.Object.ShouldHaveFailed());
             }
 
             [Fact]
@@ -50,7 +51,7 @@ namespace ForEvolve.OperationResults.Tests
                 _operationResultMock.Setup(x => x.Succeeded).Returns(false);
 
                 // Act & Assert
-                _operationResultMock.Object.AssertFailed();
+                _operationResultMock.Object.ShouldHaveFailed();
             }
         }
     }
