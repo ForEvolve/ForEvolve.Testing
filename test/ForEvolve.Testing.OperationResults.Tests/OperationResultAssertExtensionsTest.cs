@@ -10,95 +10,102 @@ namespace ForEvolve.OperationResults.Tests
         private readonly Mock<IOperationResult> _operationResultMock = new Mock<IOperationResult>();
         private readonly Mock<IOperationResult<string>> _operationResultValueMock = new Mock<IOperationResult<string>>();
 
-        public class ShouldHaveSucceeded : OperationResultAssertExtensionsTest
+        public class Should : OperationResultAssertExtensionsTest
         {
-            [Fact]
-            public void Should_not_throw_when_result_is_Successful()
+            public class HaveSucceeded : Should
             {
-                // Arrange
-                _operationResultMock.Setup(x => x.Succeeded).Returns(true);
+                [Fact]
+                public void Should_not_throw_when_result_is_Successful()
+                {
+                    // Arrange
+                    _operationResultMock.Setup(x => x.Succeeded).Returns(true);
 
-                // Act & Assert
-                _operationResultMock.Object.ShouldHaveSucceeded();
+                    // Act & Assert
+                    _operationResultMock.Object.Should().HaveSucceeded();
+                }
+
+                [Fact]
+                public void Should_throw_a_TrueException_when_the_result_is_not_Successful()
+                {
+                    // Arrange
+                    _operationResultMock.Setup(x => x.Succeeded).Returns(false);
+
+                    // Act & Assert
+                    Assert.Throws<TrueException>(()
+                        => _operationResultMock.Object.Should().HaveSucceeded());
+                }
             }
 
-            [Fact]
-            public void Should_throw_a_TrueException_when_the_result_is_not_Successful()
+            public class HaveFailed : Should
             {
-                // Arrange
-                _operationResultMock.Setup(x => x.Succeeded).Returns(false);
+                [Fact]
+                public void Should_throw_a_FalseException_when_result_is_Successful()
+                {
+                    // Arrange
+                    _operationResultMock.Setup(x => x.Succeeded).Returns(true);
 
-                // Act & Assert
-                Assert.Throws<TrueException>(() => _operationResultMock.Object.ShouldHaveSucceeded());
-            }
-        }
+                    // Act & Assert
+                    Assert.Throws<FalseException>(()
+                        => _operationResultMock.Object.Should().HaveFailed());
+                }
 
-        public class ShouldHaveFailed : OperationResultAssertExtensionsTest
-        {
-            [Fact]
-            public void Should_throw_a_FalseException_when_result_is_Successful()
-            {
-                // Arrange
-                _operationResultMock.Setup(x => x.Succeeded).Returns(true);
+                [Fact]
+                public void Should_not_throw_when_the_result_is_not_Successful()
+                {
+                    // Arrange
+                    _operationResultMock.Setup(x => x.Succeeded).Returns(false);
 
-                // Act & Assert
-                Assert.Throws<FalseException>(() => _operationResultMock.Object.ShouldHaveFailed());
-            }
-
-            [Fact]
-            public void Should_not_throw_when_the_result_is_not_Successful()
-            {
-                // Arrange
-                _operationResultMock.Setup(x => x.Succeeded).Returns(false);
-
-                // Act & Assert
-                _operationResultMock.Object.ShouldHaveFailed();
-            }
-        }
-
-        public class ShouldHaveAValue : OperationResultAssertExtensionsTest
-        {
-            [Fact]
-            public void Should_not_throw_when_the_result_has_a_value()
-            {
-                // Arrange
-                _operationResultValueMock.Setup(x => x.HasValue()).Returns(true);
-
-                // Act & Assert
-                _operationResultValueMock.Object.ShouldHaveAValue();
+                    // Act & Assert
+                    _operationResultMock.Object.Should().HaveFailed();
+                }
             }
 
-            [Fact]
-            public void Should_throw_a_TrueException_when_the_result_has_no_value()
+            public class HaveAValue : Should
             {
-                // Arrange
-                _operationResultValueMock.Setup(x => x.HasValue()).Returns(false);
+                [Fact]
+                public void Should_not_throw_when_the_result_has_a_value()
+                {
+                    // Arrange
+                    _operationResultValueMock.Setup(x => x.HasValue()).Returns(true);
 
-                // Act & Assert
-                Assert.Throws<TrueException>(() => _operationResultValueMock.Object.ShouldHaveAValue());
+                    // Act & Assert
+                    _operationResultValueMock.Object.Should().HaveAValue();
+                }
+
+                [Fact]
+                public void Should_throw_a_TrueException_when_the_result_has_no_value()
+                {
+                    // Arrange
+                    _operationResultValueMock.Setup(x => x.HasValue()).Returns(false);
+
+                    // Act & Assert
+                    Assert.Throws<TrueException>(()
+                        => _operationResultValueMock.Object.Should().HaveAValue());
+                }
             }
-        }
 
-        public class ShouldHaveNoValue : OperationResultAssertExtensionsTest
-        {
-            [Fact]
-            public void Should_throw_a_FalseException_when_the_result_has_a_value()
+            public class HaveNoValue : Should
             {
-                // Arrange
-                _operationResultValueMock.Setup(x => x.HasValue()).Returns(true);
+                [Fact]
+                public void Should_throw_a_FalseException_when_the_result_has_a_value()
+                {
+                    // Arrange
+                    _operationResultValueMock.Setup(x => x.HasValue()).Returns(true);
 
-                // Act & Assert
-                Assert.Throws<FalseException>(() => _operationResultValueMock.Object.ShouldHaveNoValue());
-            }
+                    // Act & Assert
+                    Assert.Throws<FalseException>(()
+                        => _operationResultValueMock.Object.Should().HaveNoValue());
+                }
 
-            [Fact]
-            public void Should_not_throw_when_the_result_has_no_value()
-            {
-                // Arrange
-                _operationResultValueMock.Setup(x => x.HasValue()).Returns(false);
+                [Fact]
+                public void Should_not_throw_when_the_result_has_no_value()
+                {
+                    // Arrange
+                    _operationResultValueMock.Setup(x => x.HasValue()).Returns(false);
 
-                // Act & Assert
-                _operationResultValueMock.Object.ShouldHaveNoValue();
+                    // Act & Assert
+                    _operationResultValueMock.Object.Should().HaveNoValue();
+                }
             }
         }
     }
