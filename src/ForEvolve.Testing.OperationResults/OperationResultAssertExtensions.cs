@@ -14,5 +14,15 @@ namespace ForEvolve.OperationResults
         {
             Assert.False(operationResult.Succeeded, "Expected Succeeded to be false but it was true.");
         }
+
+        public static void ShouldHaveAValue<TResult>(this IOperationResult<TResult> operationResult)
+        {
+            Assert.True(operationResult.HasValue(), "The OperationResult was expected to have a Value.");
+        }
+
+        public static void ShouldHaveNoValue<TResult>(this IOperationResult<TResult> operationResult)
+        {
+            Assert.False(operationResult.HasValue(), "The OperationResult was not expected to have a Value.");
+        }
     }
 }
