@@ -8,7 +8,8 @@
     <Authors>Carl-Hugo Marcotte</Authors>
     <Company>ForEvolve</Company>
     <PackageProjectUrl>https://github.com/ForEvolve/ForEvolve.Testing</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/ForEvolve/ForEvolve.Testing/blob/master/LICENSE</PackageLicenseUrl>
+    <!--<PackageLicenseUrl>https://github.com/ForEvolve/ForEvolve.Testing/blob/master/LICENSE</PackageLicenseUrl>-->
+    <PackageLicense>MIT</PackageLicense>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Version>1.0.0</Version>
