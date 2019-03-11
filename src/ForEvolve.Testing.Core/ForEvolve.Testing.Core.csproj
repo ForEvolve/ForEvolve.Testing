@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="$(ForEvolveNetCoreVersion)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Fluent\" />
+  </ItemGroup>
+
 </Project>

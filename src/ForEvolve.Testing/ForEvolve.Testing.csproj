@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ForEvolve.Testing.AspNetCore\ForEvolve.Testing.AspNetCore.csproj" />
+    <ProjectReference Include="..\ForEvolve.Testing.Assertions\ForEvolve.Testing.Assertions.csproj" />
     <ProjectReference Include="..\ForEvolve.Testing.Core\ForEvolve.Testing.Core.csproj" />
     <ProjectReference Include="..\ForEvolve.Testing.OperationResults\ForEvolve.Testing.OperationResults.csproj" />
   </ItemGroup>
