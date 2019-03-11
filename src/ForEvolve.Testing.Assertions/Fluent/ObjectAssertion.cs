@@ -29,6 +29,16 @@ namespace ForEvolve.Testing.Fluent
             return this;
         }
 
+        public ObjectAssertion Equal(object expectedValue)
+        {
+            return EqualTo(expectedValue);
+        }
+
+        public new ObjectAssertion Equals(object expectedValue)
+        {
+            return EqualTo(expectedValue);
+        }
+
         public ObjectAssertion Empty()
         {
             Assert.IsAssignableFrom<IEnumerable>(_object);
