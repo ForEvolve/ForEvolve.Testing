@@ -4,6 +4,9 @@ There is always something unexpected that happens or something that requires a c
 
 If your specific use-case is not covered, you can always contribute it or open an issue.
 
+[![Build Status - releases/1.0.0](https://forevolve.visualstudio.com/ForEvolve-Framework/_apis/build/status/ForEvolve.Testing?branchName=releases/1.0.0)](https://forevolve.visualstudio.com/ForEvolve-Framework/_build/latest?definitionId=42&branchName=releases/1.0.0)
+[![Build Status - master](https://forevolve.visualstudio.com/ForEvolve-Framework/_apis/build/status/ForEvolve.Testing?branchName=master)](https://forevolve.visualstudio.com/ForEvolve-Framework/_build/latest?definitionId=42&branchName=master)
+
 ## Versioning
 
 The packages should follows _sementic versioning_.
