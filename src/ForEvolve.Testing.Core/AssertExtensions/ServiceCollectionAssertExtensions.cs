@@ -102,58 +102,118 @@ namespace Microsoft.Extensions.DependencyInjection
             return services;
         }
 
+        #region AssertSingletonServiceExists
+
         public static IServiceCollection AssertSingletonServiceExists<TService>(this IServiceCollection services)
         {
             return services.AssertServiceExistsInScope<TService>(ServiceLifetime.Singleton);
         }
+
+        public static IServiceCollection AssertSingletonServiceExists(this IServiceCollection services, Type serviceType)
+        {
+            return services.AssertServiceExistsInScope(ServiceLifetime.Singleton, serviceType);
+        }
+
+        public static IServiceCollection AssertSingletonServiceExists<TService, TImplementation>(this IServiceCollection services)
+        {
+            return services.AssertServiceExistsInScope<TService, TImplementation>(ServiceLifetime.Singleton);
+        }
+
+        public static IServiceCollection AssertSingletonServiceExists(this IServiceCollection services, Type serviceType, Type implementationType)
+        {
+            return services.AssertServiceExistsInScope(ServiceLifetime.Singleton, serviceType, implementationType);
+        }
+
+        [Obsolete("Use AssertSingletonServiceExists instead.")]
         public static IServiceCollection AssertSingletonServiceImplementationExists<TService, TImplementation>(this IServiceCollection services)
         {
-            return services.AssertServiceImplementationExistsInScope<TService, TImplementation>(ServiceLifetime.Singleton);
+            return services.AssertSingletonServiceExists<TService, TImplementation>();
         }
+
+        #endregion
+
+        #region AssertScopedServiceExists
 
         public static IServiceCollection AssertScopedServiceExists<TService>(this IServiceCollection services)
         {
             return services.AssertServiceExistsInScope<TService>(ServiceLifetime.Scoped);
         }
+
+        public static IServiceCollection AssertScopedServiceExists<TService, TImplementation>(this IServiceCollection services)
+        {
+            return services.AssertServiceExistsInScope<TService, TImplementation>(ServiceLifetime.Scoped);
+        }
+
+        [Obsolete("Use AssertScopedServiceExists instead.")]
         public static IServiceCollection AssertScopedServiceImplementationExists<TService, TImplementation>(this IServiceCollection services)
         {
-            return services.AssertServiceImplementationExistsInScope<TService, TImplementation>(ServiceLifetime.Scoped);
+            return services.AssertScopedServiceExists<TService, TImplementation>();
         }
+
+        #endregion
+
+        #region AssertTransientServiceExists
 
         public static IServiceCollection AssertTransientServiceExists<TService>(this IServiceCollection services)
         {
             return services.AssertServiceExistsInScope<TService>(ServiceLifetime.Transient);
         }
+
+        public static IServiceCollection AssertTransientServiceExists<TService, TImplementation>(this IServiceCollection services)
+        {
+            return services.AssertServiceExistsInScope<TService, TImplementation>(ServiceLifetime.Transient);
+        }
+
+        [Obsolete("Use AssertTransientServiceExists instead.")]
         public static IServiceCollection AssertTransientServiceImplementationExists<TService, TImplementation>(this IServiceCollection services)
         {
-            return services.AssertServiceImplementationExistsInScope<TService, TImplementation>(ServiceLifetime.Transient);
+            return services.AssertTransientServiceExists<TService, TImplementation>();
         }
+
+        #endregion
+
+        #region AssertServiceExistsInScope
 
         public static IServiceCollection AssertServiceExistsInScope<TService>(
             this IServiceCollection services, ServiceLifetime lifetime)
         {
+            return services.AssertServiceExistsInScope(lifetime, typeof(TService));
+        }
+
+        public static IServiceCollection AssertServiceExistsInScope(
+            this IServiceCollection services,
+            ServiceLifetime lifetime, Type serviceType)
+        {
             var result = services
-                .Where(x => x.Lifetime == lifetime && x.ServiceType == typeof(TService))
+                .Where(x => x.Lifetime == lifetime && x.ServiceType == serviceType)
                 .Any();
             if (!result)
             {
-                throw new TrueException($"No service of type {typeof(TService)} was found with a lifetime of {lifetime}.", result);
+                throw new TrueException($"No service of type {serviceType} was found with a lifetime of {lifetime}.", result);
             }
             return services;
         }
 
-        public static IServiceCollection AssertServiceImplementationExistsInScope<TService, TImplementation>(
+        public static IServiceCollection AssertServiceExistsInScope<TService, TImplementation>(
             this IServiceCollection services, ServiceLifetime lifetime)
         {
-            return services.AssertServiceImplementationExistsInScope(
-                lifetime, 
-                typeof(TService), 
+            return services.AssertServiceExistsInScope(
+                lifetime,
+                typeof(TService),
                 typeof(TImplementation)
             );
         }
 
-        public static IServiceCollection AssertServiceImplementationExistsInScope(
-            this IServiceCollection services, ServiceLifetime lifetime, Type serviceType, Type implementationType)
+        [Obsolete("Use AssertServiceExistsInScope instead.")]
+        public static IServiceCollection AssertServiceImplementationExistsInScope<TService, TImplementation>(
+            this IServiceCollection services, ServiceLifetime lifetime)
+        {
+            return services.AssertServiceExistsInScope<TService, TImplementation>(lifetime);
+        }
+
+        public static IServiceCollection AssertServiceExistsInScope(
+            this IServiceCollection services, 
+            ServiceLifetime lifetime, Type serviceType, Type implementationType)
         {
             // Try to find AddX<TService, TImplementation>()
             var result = services
@@ -191,5 +251,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
             return services;
         }
+
+        #endregion
     }
 }
