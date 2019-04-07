@@ -145,12 +145,22 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AssertServiceImplementationExistsInScope<TService, TImplementation>(
             this IServiceCollection services, ServiceLifetime lifetime)
         {
+            return services.AssertServiceImplementationExistsInScope(
+                lifetime, 
+                typeof(TService), 
+                typeof(TImplementation)
+            );
+        }
+
+        public static IServiceCollection AssertServiceImplementationExistsInScope(
+            this IServiceCollection services, ServiceLifetime lifetime, Type serviceType, Type implementationType)
+        {
             // Try to find AddX<TService, TImplementation>()
             var result = services
                 .Where(
                     x => x.Lifetime == lifetime &&
-                    x.ServiceType == typeof(TService) &&
-                    x.ImplementationType == typeof(TImplementation)
+                    x.ServiceType == serviceType &&
+                    x.ImplementationType == implementationType
                 )
                 .Any();
             if (!result)
@@ -159,7 +169,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 var factoryResult = services
                     .Where(
                         x => x.Lifetime == lifetime &&
-                        x.ServiceType == typeof(TService) &&
+                        x.ServiceType == serviceType &&
                         x.ImplementationFactory != null
                     )
                     .Any();
@@ -168,8 +178,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     // When an ImplementationFactory exists, get the 
                     // service implementation and make sure it is of 
                     // the expected type.
-                    var service = services.BuildServiceProvider().GetService<TService>();
-                    if (service.GetType() == typeof(TImplementation))
+                    var service = services.BuildServiceProvider().GetService(serviceType);
+                    if (service.GetType() == implementationType)
                     {
                         result = true;
                     }
@@ -177,7 +187,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
             if (!result)
             {
-                throw new TrueException($"No implementation of type {typeof(TImplementation)} was found for service type {typeof(TService)} with a lifetime of {lifetime}.", result);
+                throw new TrueException($"No implementation of type {implementationType} was found for service type {serviceType} with a lifetime of {lifetime}.", result);
             }
             return services;
         }
