@@ -169,7 +169,7 @@ namespace Microsoft.Extensions.DependencyInjection
             return services.AssertServiceExistsInScope<TService, TImplementation>(ServiceLifetime.Transient);
         }
 
-        public static IServiceCollection AssertTransientServiceExists<TService, TImplementation>(this IServiceCollection services, Type serviceType, Type implementationType)
+        public static IServiceCollection AssertTransientServiceExists(this IServiceCollection services, Type serviceType, Type implementationType)
         {
             return services.AssertServiceExistsInScope(ServiceLifetime.Transient, serviceType, implementationType);
         }
