@@ -144,6 +144,11 @@ namespace Microsoft.Extensions.DependencyInjection
             return services.AssertServiceExistsInScope<TService, TImplementation>(ServiceLifetime.Scoped);
         }
 
+        public static IServiceCollection AssertScopedServiceExists(this IServiceCollection services, Type serviceType, Type implementationType)
+        {
+            return services.AssertServiceExistsInScope(ServiceLifetime.Scoped, serviceType, implementationType);
+        }
+
         [Obsolete("Use AssertScopedServiceExists instead.")]
         public static IServiceCollection AssertScopedServiceImplementationExists<TService, TImplementation>(this IServiceCollection services)
         {
@@ -162,6 +167,11 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AssertTransientServiceExists<TService, TImplementation>(this IServiceCollection services)
         {
             return services.AssertServiceExistsInScope<TService, TImplementation>(ServiceLifetime.Transient);
+        }
+
+        public static IServiceCollection AssertTransientServiceExists<TService, TImplementation>(this IServiceCollection services, Type serviceType, Type implementationType)
+        {
+            return services.AssertServiceExistsInScope(ServiceLifetime.Transient, serviceType, implementationType);
         }
 
         [Obsolete("Use AssertTransientServiceExists instead.")]
