@@ -58,6 +58,23 @@ namespace ForEvolve.Testing.AssertExtensions.Fluent
                 Assert.Throws<EqualException>(()
                     => input.Should().Be().EqualTo("Not the same"));
             }
+
+            [Fact]
+            public void Should_compare_complex_object_trees()
+            {
+                //
+                // TODO: create test cases that compare object and arrays in .Should().Equal()
+                //
+                // Arrange
+
+
+                // Act
+
+
+                // Assert
+                throw new NotImplementedException();
+            }
+
         }
 
         public class Empty : ObjectAssertionTest

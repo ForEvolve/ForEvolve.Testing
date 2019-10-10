@@ -15,6 +15,7 @@
     <ForEvolveTestSdkVersion Condition="'$(FOREVOLVE_TEST_SDK_VERSION)'==''">15.8.0</ForEvolveTestSdkVersion>
 
     <!-- Versioning helpers -->
-    <ForEvolveTargetFrameworks Condition="'$(FOREVOLVE_TARGET_FRAMEWORKS)'==''">netstandard2.0;netcoreapp2.1;netcoreapp2.2</ForEvolveTargetFrameworks>
+    <ForEvolveTargetFrameworks Condition="'$(FOREVOLVE_TARGET_FRAMEWORKS)'==''">netstandard2.0;netcoreapp2.1;netcoreapp2.2;netcoreapp3.0</ForEvolveTargetFrameworks>
+    <ForEvolveTestTargetFrameworks Condition="'$(FOREVOLVE_TEST_TARGET_FRAMEWORKS)'==''">netcoreapp2.1;netcoreapp2.2;netcoreapp3.0</ForEvolveTestTargetFrameworks>
   </PropertyGroup>
 </Project>
