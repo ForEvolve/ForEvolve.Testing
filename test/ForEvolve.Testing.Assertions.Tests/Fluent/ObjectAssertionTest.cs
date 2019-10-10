@@ -31,7 +31,7 @@ namespace ForEvolve.Testing.AssertExtensions.Fluent
                 var input = new { SomeProperty = "Some value" };
 
                 // Act & Assert
-                Assert.Throws<PropertyNotFoundException>(() 
+                Assert.Throws<PropertyNotFoundException>(()
                     => input.Should().OwnProperty("DoesNotExist"));
             }
         }
@@ -59,7 +59,7 @@ namespace ForEvolve.Testing.AssertExtensions.Fluent
                     => input.Should().Be().EqualTo("Not the same"));
             }
 
-            [Fact]
+            [Fact(Skip = "TODO: create test cases that compare object and arrays in .Should().Equal()")]
             public void Should_compare_complex_object_trees()
             {
                 //
