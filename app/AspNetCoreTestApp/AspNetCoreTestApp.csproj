@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
-    <packageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
+    <PackageReference Remove="Microsoft.AspNetCore.TestHost" />
+    <packageReference Remove="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Remove="Microsoft.NET.Test.Sdk" />
+    <PackageReference Remove="Moq" />
+    <PackageReference Remove="xunit" />
+    <PackageReference Remove="xunit.runner.visualstudio" />
   </ItemGroup>
   
   <ItemGroup Condition=" '$(TargetFramework)'!='netcoreapp3.0' ">
