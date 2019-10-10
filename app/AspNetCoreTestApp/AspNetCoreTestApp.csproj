@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <TargetFrameworks>$(ForEvolveTestTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
+    <packageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
+  </ItemGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)'!='netcoreapp3.0' ">
+    <PackageReference Include="Microsoft.AspNetCore" Version="$(ForEvolveNetCoreVersion)" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="$(ForEvolveNetCoreVersion)" />
+  </ItemGroup>
+  
+</Project>

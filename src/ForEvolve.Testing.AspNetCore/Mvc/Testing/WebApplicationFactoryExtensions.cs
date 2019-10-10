@@ -14,6 +14,13 @@ namespace Microsoft.AspNetCore.Mvc.Testing
         public static IServiceCollection FindServiceCollection<TEntryPoint>(this WebApplicationFactory<TEntryPoint> webApplicationFactory)
              where TEntryPoint : class
         {
+#if NETCOREAPP_3
+            //webApplicationFactory.Services.
+            var sc = webApplicationFactory.Services.GetRequiredService<IServiceCollection>();
+            if (sc != null) return sc;
+#else
+#endif
+
             // Make sure the server is started
             if (webApplicationFactory.Server?.Host == null)
             {

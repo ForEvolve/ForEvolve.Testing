@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <RootNamespace>ForEvolve.OperationResults</RootNamespace>
+    <TargetFrameworks>$(ForEvolveTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ForEvolve.OperationResults" Version="2.0.0-CI-672" />
+    <PackageReference Include="ForEvolve.OperationResults" Version="2.0.0-CI-822" />
   </ItemGroup>
 
 </Project>

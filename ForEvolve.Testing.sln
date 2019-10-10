@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0859CBB5-A49D-4167-A777-2A185ABA75F5}"
 EndProject
@@ -48,9 +48,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.Operation
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.OperationResults.Tests", "test\ForEvolve.Testing.OperationResults.Tests\ForEvolve.Testing.OperationResults.Tests.csproj", "{7643DDB1-46B9-4C90-AF7E-AC0D3AF5774F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForEvolve.Testing.Assertions", "src\ForEvolve.Testing.Assertions\ForEvolve.Testing.Assertions.csproj", "{16D49B14-553F-4BBF-BFEC-BA782959CBEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.Assertions", "src\ForEvolve.Testing.Assertions\ForEvolve.Testing.Assertions.csproj", "{16D49B14-553F-4BBF-BFEC-BA782959CBEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForEvolve.Testing.Assertions.Tests", "test\ForEvolve.Testing.Assertions.Tests\ForEvolve.Testing.Assertions.Tests.csproj", "{AEDDF222-E51D-4348-B934-DACEDB67CCAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEvolve.Testing.Assertions.Tests", "test\ForEvolve.Testing.Assertions.Tests\ForEvolve.Testing.Assertions.Tests.csproj", "{AEDDF222-E51D-4348-B934-DACEDB67CCAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreTestApp", "app\AspNetCoreTestApp\AspNetCoreTestApp.csproj", "{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -182,6 +184,18 @@ Global
 		{AEDDF222-E51D-4348-B934-DACEDB67CCAA}.Release|x64.Build.0 = Release|Any CPU
 		{AEDDF222-E51D-4348-B934-DACEDB67CCAA}.Release|x86.ActiveCfg = Release|Any CPU
 		{AEDDF222-E51D-4348-B934-DACEDB67CCAA}.Release|x86.Build.0 = Release|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Debug|x64.Build.0 = Debug|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Debug|x86.Build.0 = Debug|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Release|x64.ActiveCfg = Release|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Release|x64.Build.0 = Release|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Release|x86.ActiveCfg = Release|Any CPU
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,6 +214,7 @@ Global
 		{7643DDB1-46B9-4C90-AF7E-AC0D3AF5774F} = {7E5A7F24-A638-4D2D-8568-1206012F1A96}
 		{16D49B14-553F-4BBF-BFEC-BA782959CBEF} = {0859CBB5-A49D-4167-A777-2A185ABA75F5}
 		{AEDDF222-E51D-4348-B934-DACEDB67CCAA} = {7E5A7F24-A638-4D2D-8568-1206012F1A96}
+		{D66C1BDD-6256-4FA2-85B6-4A62C003DA0F} = {7E5A7F24-A638-4D2D-8568-1206012F1A96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E14726D6-C79A-49B5-BC51-C7BFAAA30A96}

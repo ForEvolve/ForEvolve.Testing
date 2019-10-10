@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <RootNamespace>ForEvolve.Testing</RootNamespace>
+    <TargetFrameworks>$(ForEvolveTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>

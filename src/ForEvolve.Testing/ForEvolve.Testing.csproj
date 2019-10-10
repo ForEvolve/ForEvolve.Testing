@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <PropertyGroup>
+    <TargetFrameworks>$(ForEvolveTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\ForEvolve.Testing.AspNetCore\ForEvolve.Testing.AspNetCore.csproj" />
     <ProjectReference Include="..\ForEvolve.Testing.Assertions\ForEvolve.Testing.Assertions.csproj" />

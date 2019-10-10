@@ -1,9 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <RootNamespace>ForEvolve.Testing.Assertions</RootNamespace>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <TargetFrameworks>$(ForEvolveTestTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
