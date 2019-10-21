@@ -41,7 +41,6 @@ namespace ForEvolve.Testing.AspNetCore.Mvc.Testing
                 // Assert
                 Assert.NotNull(services);
             }
-
         }
     }
 

@@ -15,11 +15,18 @@ namespace Microsoft.AspNetCore.Mvc.Testing
              where TEntryPoint : class
         {
 #if NETCOREAPP_3
-            //webApplicationFactory.Services.
-            var sc = webApplicationFactory.Services.GetRequiredService<IServiceCollection>();
-            if (sc != null) return sc;
+            IServiceCollection services = default;
+            using (var tempFactory = webApplicationFactory.WithWebHostBuilder(builder => builder
+                 .ConfigureServices(testServices => services = testServices)))
+            {
+                using var tempClient = tempFactory.CreateClient();
+                if (services != default)
+                {
+                    return services;
+                }
+            }
+            throw new XunitException("The IServiceCollection was not found.");
 #else
-#endif
 
             // Make sure the server is started
             if (webApplicationFactory.Server?.Host == null)
@@ -41,6 +48,7 @@ namespace Microsoft.AspNetCore.Mvc.Testing
                 throw new XunitException("The IServiceCollection was not found. Maybe the _applicationServiceCollection field was renamed or removed. If the problem persist, please open a GitHub issue in the project repository.");
             }
             return services;
+#endif
         }
     }
 }

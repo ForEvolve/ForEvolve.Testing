@@ -99,8 +99,8 @@ This project contains some Asp.Net Core test utilities like:
 -   `HttpContextHelper` that creates the plumbing to mock `HttpContext`, `HttpRequest`, and `HttpResponse`.
 -   `MvcContextHelper` at creates the plumbing to mock `IUrlHelper` and `ActionContext`; inclusing support for `RouteData`, `ActionDescriptor`, and `ModelStateDictionary`.
 -   An extension method on `HttpResponse` to `httpResponse.BodyShouldEqual("Some value")`
--   An extension on `WebApplicationFactory<TEntryPoint>` to `webApplicationFactory.FindServiceCollection()` that return the private `webApplicationFactory.Server.Host._applicationServiceCollection` property.
--   An extensnio on `IServiceCollection` to `services.RemoveFilter<TFilter>()` that remove the specified filter from `MvcOptions`. The method rely on `PostConfigure<MvcOptions>(...)`.
+-   An extension on `WebApplicationFactory<TEntryPoint>` to `webApplicationFactory.FindServiceCollection()` that returns the current `IServiceCollection` from the specified `WebApplicationFactory`; this is useful to assert service registration.
+-   An extension on `IServiceCollection` to `services.RemoveFilter<TFilter>()` that remove the specified filter from `MvcOptions`. The method rely on `PostConfigure<MvcOptions>(...)`.
 
 ## History
 
