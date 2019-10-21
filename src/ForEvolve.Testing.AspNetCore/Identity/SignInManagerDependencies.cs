@@ -21,6 +21,9 @@ namespace ForEvolve.Testing.AspNetCore.Identity
 
         public Mock<IAuthenticationService> AuthenticationServiceMock { get; }
 
+#if NETCOREAPP_3
+        public Mock<IUserConfirmation<TUser>> UserConfirmationMock { get; }
+#endif
         //public Mock<ClaimsPrincipal> ClaimsPrincipalMock { get; set; }
 
         public SignInManagerDependencies()
@@ -67,9 +70,12 @@ namespace ForEvolve.Testing.AspNetCore.Identity
                 .Setup(x => x.HttpContext)
                 .Returns(HttpContentMock.Object);
 
-            // Resources
-            // AuthenticationHttpContextExtensions: https://github.com/aspnet/HttpAbstractions/blob/271faf11bbd5b05cd758f1c7e83eb59d45b6db59/src/Microsoft.AspNetCore.Authentication.Abstractions/AuthenticationHttpContextExtensions.cs
-            // SignInManager: https://github.com/aspnet/Identity/blob/eb3ff7fc32dbfff65a1ba6dfdca16487e0f6fc41/src/Microsoft.AspNetCore.Identity/SignInManager.cs
-        }
+#if NETCOREAPP_3
+            UserConfirmationMock = new Mock<IUserConfirmation<TUser>>();
+#endif
+        // Resources
+        // AuthenticationHttpContextExtensions: https://github.com/aspnet/HttpAbstractions/blob/271faf11bbd5b05cd758f1c7e83eb59d45b6db59/src/Microsoft.AspNetCore.Authentication.Abstractions/AuthenticationHttpContextExtensions.cs
+        // SignInManager: https://github.com/aspnet/Identity/blob/eb3ff7fc32dbfff65a1ba6dfdca16487e0f6fc41/src/Microsoft.AspNetCore.Identity/SignInManager.cs
     }
+}
 }

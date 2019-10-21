@@ -60,6 +60,9 @@ namespace ForEvolve.Testing.AspNetCore.Identity
                 SignInManagerDependencies.OptionsAccessorMock.Object,
                 SignInManagerDependencies.SignInManagerLoggerMock.Object,
                 SignInManagerDependencies.SchemesMock.Object
+#if NETCOREAPP_3
+                , SignInManagerDependencies.UserConfirmationMock.Object
+#endif
             );
             // SignInAsync
             SignInManagerMock
