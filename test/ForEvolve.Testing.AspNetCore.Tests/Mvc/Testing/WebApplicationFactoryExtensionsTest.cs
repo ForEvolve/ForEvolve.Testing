@@ -41,6 +41,30 @@ namespace ForEvolve.Testing.AspNetCore.Mvc.Testing
                 // Assert
                 Assert.NotNull(services);
             }
+
+            [Fact]
+            public void Should_return_the_IServiceCollection_that_contains_registered_services()
+            {
+                // Arrange
+                var factory = _factory.WithWebHostBuilder(builder =>
+                {
+                    builder.ConfigureServices(s =>
+                    {
+                        s.AddSingleton<IService, MyService>();
+                    });
+                });
+                var client = factory.CreateClient();
+
+                // Act
+                var services = factory.FindServiceCollection();
+
+                // Assert
+                Assert.NotNull(services);
+                services.AssertSingletonServiceExists<IService, MyService>();
+            }
+
+            private interface IService { }
+            private class MyService : IService { }
         }
     }
 
