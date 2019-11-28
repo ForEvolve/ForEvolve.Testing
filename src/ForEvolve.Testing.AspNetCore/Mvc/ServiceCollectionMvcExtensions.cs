@@ -16,7 +16,21 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             return services.PostConfigure<MvcOptions>(options =>
             {
-                var filters = options.Filters.Where(x => x.GetType() == typeof(RequireHttpsAttribute)).ToArray();
+                var filters = options.Filters
+                    .Where(x => x is TypeFilterAttribute)
+                    .Select(x => x as TypeFilterAttribute)
+                    .Where(x => x.ImplementationType == typeof(TFilter))
+                    .AsEnumerable<IFilterMetadata>()
+                    .Union(options.Filters
+                        .Where(x => x is ServiceFilterAttribute)
+                        .Select(x => x as ServiceFilterAttribute)
+                        .Where(x => x.ServiceType == typeof(TFilter))
+                    )
+                    .Union(options.Filters
+                        .Where(x => x.GetType() == typeof(TFilter))
+                    )
+                    .ToArray()
+                    ;
                 if (filters != null && filters.Count() > 0)
                 {
                     foreach (var filter in filters)
