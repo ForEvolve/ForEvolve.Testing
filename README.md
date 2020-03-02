@@ -9,7 +9,7 @@ If your specific use-case is not covered, you can always contribute it or open a
 
 ## Versioning
 
-The packages should follows _sementic versioning_.
+The packages should follows _semantic versioning_.
 
 ## Hot to use
 
