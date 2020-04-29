@@ -9,17 +9,9 @@
     <packageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
   </ItemGroup>
 
-  <Choose>
-    <When Condition=" '$(TargetFramework)'=='netcoreapp3.0' ">
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore" Version="$(ForEvolveNetCoreVersion)" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="$(ForEvolveNetCoreVersion)" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity" Version="$(ForEvolveIdentityVersion)" />
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
 
 
   <ItemGroup>

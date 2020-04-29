@@ -14,7 +14,7 @@ namespace Microsoft.AspNetCore.Mvc.Testing
         public static IServiceCollection FindServiceCollection<TEntryPoint>(this WebApplicationFactory<TEntryPoint> webApplicationFactory)
              where TEntryPoint : class
         {
-#if NETCOREAPP_3
+#if NETCOREAPP_3 || NET5
             IServiceCollection services = default;
             using (var tempFactory = webApplicationFactory.WithWebHostBuilder(builder => builder
                  .ConfigureServices(testServices => services = testServices)))

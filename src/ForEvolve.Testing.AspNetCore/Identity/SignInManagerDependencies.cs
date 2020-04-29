@@ -21,7 +21,7 @@ namespace ForEvolve.Testing.AspNetCore.Identity
 
         public Mock<IAuthenticationService> AuthenticationServiceMock { get; }
 
-#if NETCOREAPP_3
+#if NETCOREAPP_3 || NET5
         public Mock<IUserConfirmation<TUser>> UserConfirmationMock { get; }
 #endif
         //public Mock<ClaimsPrincipal> ClaimsPrincipalMock { get; set; }
@@ -70,7 +70,7 @@ namespace ForEvolve.Testing.AspNetCore.Identity
                 .Setup(x => x.HttpContext)
                 .Returns(HttpContentMock.Object);
 
-#if NETCOREAPP_3
+#if NETCOREAPP_3 || NET5
             UserConfirmationMock = new Mock<IUserConfirmation<TUser>>();
 #endif
         // Resources

@@ -13,15 +13,15 @@ namespace AspNetCoreTestApp
     {
         public static void Main(string[] args)
         {
-#if NETCOREAPP_3
-                CreateHostBuilder(args).Build().Run();
+#if NETCOREAPP_3 || NET5
+            CreateHostBuilder(args).Build().Run();
 #else
             CreateWebHostBuilder(args).Build().Run();
 #endif
         }
 
-#if NETCOREAPP_3
-            public static IHostBuilder CreateHostBuilder(string[] args) =>
+#if NETCOREAPP_3 || NET5
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
                 Host.CreateDefaultBuilder(args)
                     .ConfigureWebHostDefaults(webBuilder =>
                     {

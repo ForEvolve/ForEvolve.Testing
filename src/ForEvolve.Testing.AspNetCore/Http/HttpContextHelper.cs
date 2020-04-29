@@ -17,10 +17,10 @@ namespace ForEvolve.Testing.AspNetCore.Http
 
         public Mock<IHttpContextAccessor> Mock { get; }
         public Mock<HttpContext> HttpContextMock { get; }
-        public HttpRequest HttpRequest { get; }
-        private HeaderDictionary HeaderDictionary { get; }
+        public HttpRequestFake HttpRequestFake { get; }
+        public HeaderDictionary HeaderDictionary { get; }
         public Mock<IResponseCookies> ResponseCookiesMock { get; set; }
-        public HttpResponse HttpResponse { get; }
+        public HttpResponseFake HttpResponseFake { get; }
         public Mock<IFeatureCollection> FeaturesMock { get; }
 
         public HttpContextHelper()
@@ -32,14 +32,14 @@ namespace ForEvolve.Testing.AspNetCore.Http
             Mock = new Mock<IHttpContextAccessor>();
             HttpContextMock = new Mock<HttpContext>();
             HeaderDictionary = new HeaderDictionary();
-            HttpRequest = new HttpRequestFake(HttpContextMock.Object, HeaderDictionary);
+            HttpRequestFake = new HttpRequestFake(HttpContextMock.Object, HeaderDictionary);
             ResponseCookiesMock = new Mock<IResponseCookies>();
-            HttpResponse = new HttpResponseFake(
+            HttpResponseFake = new HttpResponseFake(
                 HttpContextMock.Object, 
                 HeaderDictionary, 
                 ResponseCookiesMock.Object
             );
-            HttpResponse.Body = new MemoryStream();
+            HttpResponseFake.Body = new MemoryStream();
             FeaturesMock = new Mock<IFeatureCollection>();
 
             Mock
@@ -47,10 +47,10 @@ namespace ForEvolve.Testing.AspNetCore.Http
                 .Returns(HttpContextMock.Object);
             HttpContextMock
                 .Setup(x => x.Request)
-                .Returns(() => HttpRequest);
+                .Returns(() => HttpRequestFake);
             HttpContextMock
                 .Setup(x => x.Response)
-                .Returns(() => HttpResponse);
+                .Returns(() => HttpResponseFake);
             HttpContextMock
                 .Setup(x => x.Features)
                 .Returns(() => FeaturesMock.Object);

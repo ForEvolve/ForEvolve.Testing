@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-#if NETCOREAPP_3
+#if NETCOREAPP_3 || NET5
 using Microsoft.Extensions.Hosting;
 #endif
 using System;

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Moq;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,10 +61,12 @@ namespace ForEvolve.Testing.AspNetCore.Identity
                 SignInManagerDependencies.OptionsAccessorMock.Object,
                 SignInManagerDependencies.SignInManagerLoggerMock.Object,
                 SignInManagerDependencies.SchemesMock.Object
-#if NETCOREAPP_3
+#if NETCOREAPP_3 || NET5
                 , SignInManagerDependencies.UserConfirmationMock.Object
 #endif
             );
+            //UserManager<TUser> userManager, IHttpContextAccessor contextAccessor, IUserClaimsPrincipalFactory<TUser> claimsFactory, IOptions<IdentityOptions> optionsAccessor, ILogger<SignInManager<TUser>> logger, IAuthenticationSchemeProvider schemes, IUserConfirmation<TUser> confirmation
+
             // SignInAsync
             SignInManagerMock
                 .Setup(x => x.SignInAsync(It.IsAny<TUser>(), It.IsAny<bool>(), It.IsAny<string>()))

@@ -12,10 +12,9 @@
     <PackageReference Remove="xunit" />
     <PackageReference Remove="xunit.runner.visualstudio" />
   </ItemGroup>
-  
-  <ItemGroup Condition=" '$(TargetFramework)'!='netcoreapp3.0' ">
-    <PackageReference Include="Microsoft.AspNetCore" Version="$(ForEvolveNetCoreVersion)" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="$(ForEvolveNetCoreVersion)" />
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
-  
+
 </Project>

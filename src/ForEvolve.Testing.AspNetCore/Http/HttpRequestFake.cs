@@ -33,13 +33,15 @@ namespace ForEvolve.Testing.AspNetCore.Http
         public override string ContentType { get; set; }
         public override Stream Body { get; set; }
 
-        public override bool HasFormContentType => throw new NotImplementedException();
+        public override bool HasFormContentType { get; }
 
         public override IFormCollection Form { get; set; }
 
-        public override Task<IFormCollection> ReadFormAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public Func<CancellationToken, Task<IFormCollection>> ReadFormAsyncAction { get; set; }
+
+        public override Task<IFormCollection> ReadFormAsync(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            return ReadFormAsyncAction?.Invoke(cancellationToken);
         }
     }
 }
