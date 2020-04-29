@@ -8,21 +8,20 @@
     <Company>ForEvolve</Company>
     <PackageProjectUrl>https://github.com/ForEvolve/ForEvolve.Testing</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ForEvolve/ForEvolve.Testing/blob/master/LICENSE</PackageLicenseUrl>
-    <!--<license>MIT</license>-->
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <Version>1.0.0</Version>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <License>MIT</License>
     <Copyright>Carl-Hugo Marcotte</Copyright>
-    <IncludeSymbols>True</IncludeSymbols>
-    <IncludeSource>True</IncludeSource>
     <DebugType>Full</DebugType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Nerdbank.GitVersioning">
+      <Version>3.1.74</Version>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.abstractions" Version="2.0.3" />
   </ItemGroup>
 </Project>
