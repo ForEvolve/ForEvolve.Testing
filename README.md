@@ -6,14 +6,11 @@
 
 There is always something unexpected that happens or something that requires a complex mock setup or whatnot when testing web applications. This project aim at regrouping as many of those solutions as possible, ready to use, as well as multiple small utilities.
 
-If your specific use-case is not covered, you can always contribute it or open an issue.
-
-[![Build Status - releases/1.0.0](https://forevolve.visualstudio.com/ForEvolve-Framework/_apis/build/status/ForEvolve.Testing?branchName=releases/1.0.0)](https://forevolve.visualstudio.com/ForEvolve-Framework/_build/latest?definitionId=42&branchName=releases/1.0.0)
-[![Build Status - master](https://forevolve.visualstudio.com/ForEvolve-Framework/_apis/build/status/ForEvolve.Testing?branchName=master)](https://forevolve.visualstudio.com/ForEvolve-Framework/_build/latest?definitionId=42&branchName=master)
+If your specific use-case is not covered, you can open an issue then even contribute it.
 
 ## Versioning
 
-The packages should follows _semantic versioning_.
+The packages follows _semantic versioning_ and uses [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning) under the hood to automate versioning based on Git commits.
 
 ## Hot to use
 
@@ -49,21 +46,17 @@ dotnet add package ForEvolve.Testing.Core
 dotnet add package ForEvolve.Testing.AspNetCore
 ```
 
-### Prerelease MyGet
+### Prerelease packages
 
-For the pre-release packages, use the ForEvolve [NuGet V3 feed URL](https://www.myget.org/F/forevolve/api/v3/index.json) packages source. See the [Table of content](https://github.com/ForEvolve/Toc) project for more info.
-
-### Pre-release build number
-
-Pre-release builds number are autoincremented.
+For the pre-release packages, use the ForEvolve/Testing [feedz.io](https://f.feedz.io/forevolve/testing/nuget/index.json) packages source.
 
 ## Content
 
-The repository is divided into multiple projects, loadable individually, and assembled as one in `ForEvolve.Testing`.
+The repository is divided into multiple projects, with `ForEvolve.Testing` that references the others.
 
 ### ForEvolve.Testing
 
-This project load all of the other projects to create a NuGet package to rule them all! You can load this package or any other individually.
+This project load all of the other projects to create "a NuGet package to rule them all"!
 
 ### ForEvolve.Testing.Core
 
@@ -101,7 +94,7 @@ This project contains some Asp.Net Core test utilities like:
 
 -   `IdentityHelper` that creates the plumbing to mock `SignInManager<TUser>` and `UserManager<TUser>`. Multiple authentication scenarios are supported.
 -   `HttpContextHelper` that creates the plumbing to mock `HttpContext`, `HttpRequest`, and `HttpResponse`.
--   `MvcContextHelper` at creates the plumbing to mock `IUrlHelper` and `ActionContext`; inclusing support for `RouteData`, `ActionDescriptor`, and `ModelStateDictionary`.
+-   `MvcContextHelper` at creates the plumbing to mock `IUrlHelper` and `ActionContext`; including support for `RouteData`, `ActionDescriptor`, and `ModelStateDictionary`.
 -   An extension method on `HttpResponse` to `httpResponse.BodyShouldEqual("Some value")`
 -   An extension on `WebApplicationFactory<TEntryPoint>` to `webApplicationFactory.FindServiceCollection()` that returns the current `IServiceCollection` from the specified `WebApplicationFactory`; this is useful to assert service registration.
 -   An extension on `IServiceCollection` to `services.RemoveFilter<TFilter>()` that remove the specified filter from `MvcOptions`. The method rely on `PostConfigure<MvcOptions>(...)`.
@@ -114,12 +107,7 @@ The initial code comes from the `ForEvolve.XUnit` project, see [ForEvolve-Framew
 
 ## The future
 
-Here are a few things that I'd like to add:
-
--   An in-memory test server that replies configurable predefined values. This could become an in-memory mock API to test clients or other APIs.
--   An easy way to connect an in-memory test host to another in-memory Identity Server 4 to fully test authentication.
-
-There is much stuff that I want to improve or add to this library in the future, and since I use it myself in my projects, I will probably do if the time allows.
+There is a lot of stuff that I want to improve or add to this library in the future, I will do when I have the time to.
 
 ## How to contribute?
 
