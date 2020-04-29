@@ -1,5 +1,9 @@
 # ForEvolve.Testing
 
+![Build, Test, and Deploy master to feedz.io](https://github.com/ForEvolve/ForEvolve.Testing/workflows/Build,%20Test,%20and%20Deploy%20master%20to%20feedz.io/badge.svg)
+[![feedz.io](https://img.shields.io/badge/endpoint.svg?url=https%3A%2F%2Ff.feedz.io%2Fforevolve%2Ftesting%2Fshield%2FForEvolve.Testing%2Flatest)](https://f.feedz.io/forevolve/testing/packages/ForEvolve.Testing/latest/download)
+[![NuGet.org](https://img.shields.io/nuget/vpre/ForEvolve.Testing)](https://www.nuget.org/packages/ForEvolve.Testing/)
+
 There is always something unexpected that happens or something that requires a complex mock setup or whatnot when testing web applications. This project aim at regrouping as many of those solutions as possible, ready to use, as well as multiple small utilities.
 
 If your specific use-case is not covered, you can always contribute it or open an issue.
