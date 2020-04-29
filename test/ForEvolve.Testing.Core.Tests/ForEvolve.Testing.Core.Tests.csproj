@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>ForEvolve.Testing</RootNamespace>
+    <TargetFrameworks>$(ForEvolveTestTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ForEvolve.Testing.Core\ForEvolve.Testing.Core.csproj" />
+  </ItemGroup>
+
+</Project>

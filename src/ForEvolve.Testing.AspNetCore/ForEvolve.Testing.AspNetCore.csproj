@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(ForEvolveTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <packageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(ForEvolveNetCoreVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ForEvolve.Testing.Core\ForEvolve.Testing.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>ForEvolve.Testing.AspNetCore</RootNamespace>
+    <TargetFrameworks>$(ForEvolveTestTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
+    <packageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(ForEvolveAspNetCoreTestHostVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\AspNetCoreTestApp\AspNetCoreTestApp.csproj" />
+    <ProjectReference Include="..\..\src\ForEvolve.Testing.AspNetCore\ForEvolve.Testing.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>
