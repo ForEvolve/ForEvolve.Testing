@@ -1,4 +1,5 @@
 ﻿using AspNetCoreTestApp;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 #endif
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,10 +72,10 @@ namespace ForEvolve.Testing.AspNetCore.Mvc.Testing
 
     public class MyAppFactory : WebApplicationFactory<Startup>
     {
-        protected override IWebHostBuilder CreateWebHostBuilder()
+        protected override IHost CreateHost(IHostBuilder builder)
         {
-            return Microsoft.AspNetCore.WebHost.CreateDefaultBuilder()
-                .UseStartup<Startup>();
+            builder.UseContentRoot(Directory.GetCurrentDirectory());
+            return base.CreateHost(builder);
         }
     }
 }
