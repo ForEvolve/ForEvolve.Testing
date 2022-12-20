@@ -3,7 +3,7 @@
 
   <PropertyGroup>
     <Product>ForEvolve Testing Framework</Product>
-    <RepositoryUrl>https://github.com/ForEvolve/ForEvolve-Framework</RepositoryUrl>
+    <RepositoryUrl>https://github.com/ForEvolve/ForEvolve.Testing</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
