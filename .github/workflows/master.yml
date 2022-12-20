@@ -12,7 +12,7 @@ on:
             - master
 
 env:
-    DOTNET_VERSION: '5.0.100'
+    DOTNET_VERSION: '5.0.408'
     BUILD_CONFIGURATION: Release
     FEEDZ_SOURCE: https://f.feedz.io/forevolve/testing/nuget/index.json
 
