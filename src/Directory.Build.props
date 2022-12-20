@@ -7,7 +7,6 @@
     <Authors>Carl-Hugo Marcotte</Authors>
     <Company>ForEvolve</Company>
     <PackageProjectUrl>https://github.com/ForEvolve/ForEvolve.Testing</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/ForEvolve/ForEvolve.Testing/blob/master/LICENSE</PackageLicenseUrl>
     <License>MIT</License>
     <Copyright>Carl-Hugo Marcotte</Copyright>
     <DebugType>Full</DebugType>
@@ -19,7 +18,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Nerdbank.GitVersioning">
-      <Version>3.1.74</Version>
+      <Version>3.5.119</Version>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="xunit.abstractions" Version="2.0.3" />

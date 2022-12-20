@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Microsoft.AspNetCore.Mvc.Testing
 #if NETCOREAPP_3 || NET5
             IServiceCollection services = default;
             using (var tempFactory = webApplicationFactory.WithWebHostBuilder(builder => builder
-                 .ConfigureServices(testServices => services = testServices)))
+                 .ConfigureTestServices(testServices => services = testServices)))
             {
                 using var tempClient = tempFactory.CreateClient();
                 if (services != default)

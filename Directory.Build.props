@@ -3,14 +3,10 @@
 
   <PropertyGroup>
     <Product>ForEvolve Testing Framework</Product>
-    <RepositoryUrl>https://github.com/ForEvolve/ForEvolve-Framework</RepositoryUrl>
+    <RepositoryUrl>https://github.com/ForEvolve/ForEvolve.Testing</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)'=='netcoreapp3.0' ">
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Moq" Version="$(ForEvolveMoqVersion)" />
