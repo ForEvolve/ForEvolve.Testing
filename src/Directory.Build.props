@@ -7,7 +7,6 @@
     <Authors>Carl-Hugo Marcotte</Authors>
     <Company>ForEvolve</Company>
     <PackageProjectUrl>https://github.com/ForEvolve/ForEvolve.Testing</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/ForEvolve/ForEvolve.Testing/blob/master/LICENSE</PackageLicenseUrl>
     <License>MIT</License>
     <Copyright>Carl-Hugo Marcotte</Copyright>
     <DebugType>Full</DebugType>
