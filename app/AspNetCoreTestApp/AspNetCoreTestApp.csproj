@@ -13,8 +13,4 @@
     <PackageReference Remove="xunit.runner.visualstudio" />
   </ItemGroup>
 
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
 </Project>
